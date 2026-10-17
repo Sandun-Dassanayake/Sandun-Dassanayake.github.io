@@ -2,37 +2,35 @@
 
 A plain static website (HTML + CSS + a little JavaScript) hosted on GitHub Pages.
 
-## Publish on GitHub Pages
-The site uses relative links, so it works at any address.
+## Pages
+| Tab | Path | Folder |
+|---|---|---|
+| Home | `/` | `index.html` |
+| Postgraduate Research | `/postgraduate-research/` | `postgraduate-research/` |
+| Teaching Profile → Undergraduate | `/teaching-profile/undergraduate/` | `teaching-profile/undergraduate/` |
+| Teaching Profile → Postgraduate | `/teaching-profile/postgraduate/` | `teaching-profile/postgraduate/` |
+| Research Interests | `/research-interests/` | `research-interests/` |
+| Resources | `/resources/` | `resources/` (+ `remote-sensing-gis-directory/`) |
 
-**Free option – a GitHub organization with your name**
-1. On GitHub: **+ → New organization → Free**, and name it e.g. `sandun-dassanayake`.
-2. In that organization, create a public repository named exactly `sandun-dassanayake.github.io`.
-3. Upload everything in this folder to the repository root (including the hidden `.nojekyll` file).
-4. **Settings → Pages → Source: Deploy from a branch**, branch **main**, folder **/ (root)** → Save.
-5. The site appears at `https://sandun-dassanayake.github.io/` within a few minutes.
+## Adding a student (Postgraduate Research)
+1. Open `postgraduate-research/index.html`.
+2. Find a block between `STUDENT PROFILE: copy from here` and `copy to here`, copy it, and paste it where you want it in the list.
+3. Give the new block a unique `id` (e.g. `id="nimal-perera"`) and fill in the name, degree, years, bio, project, thesis and publications.
+4. Status badge: `<span class="status current">Current</span>` or `<span class="status completed">Completed</span>`.
+5. Photo: save a square photo as `assets/img/students/<id>.jpg` (same id as step 3) and set the `img src` to match. Without a photo, the initials are shown.
+6. Add the student to the row of name buttons near the top: `<a href="#nimal-perera">Nimal Perera (current)</a>`.
+7. Delete the example "Student Name" blocks you are not using.
 
-**Paid option – your own domain** (e.g. `sandundassanayake.com`)
-Buy the domain from any registrar, then in the repository go to **Settings → Pages → Custom domain**
-and follow GitHub's DNS instructions. This works with any repository, including one under your personal account.
-
-Every later change you commit to `main` goes live automatically.
-
-## Page addresses
-| Page | Path |
-|---|---|
-| Home | `/` |
-| Resources | `/resources/` |
-| University of Moratuwa | `/teaching-profile/university-of-moratuwa/` |
-| CILT Course Page | `/teaching-profile/cilt-course-page/` |
-| Scientific Writing | `/postgraduate-research/scientific-writing/` |
-| Climate and Sustainability Theme | `/undergraduate-research/climate-and-sustainability-theme/` |
+## Research areas (Research Interests)
+Each area is a block between `RESEARCH AREA: copy from here` and `copy to here`.
+- Figure: save the image as `assets/img/research/urban-heat.jpg`, `geohazards.jpg` or `remediation.jpg`. Until then a dashed placeholder is shown.
+- Edit the caption in `<figcaption>`, the paragraphs, the method chips (`<ul class="chips">`) and the related publications.
 
 ## Common edits
-- **Profile photo:** add a square photo as `assets/img/profile.jpg`. Until then, the initials "SD" are shown.
-- **Text on a page:** open that folder's `index.html` and edit between the tags.
-- **Colours and fonts:** `assets/style.css` (the variables at the top).
-- **Menu:** the menu is written into each page's `index.html`. If you add or rename a page, update the `<nav>` block in every page.
+- **Profile photo:** `assets/img/profile.jpg` (use a square photo, at least 400 × 400 px).
+- **Colours and fonts:** variables at the top of `assets/style.css`.
+- **Menu:** written into every page's `<nav>` block. If you add or rename a tab, update it in all 7 pages.
 
-## Limits to know
-GitHub blocks single files over 100 MB and recommends keeping a repository under 1 GB. The site is well under 1 MB plus anything you add.
+## Publishing
+Upload everything in this folder (including the hidden `.nojekyll` file) to the repository root.
+Settings → Pages → Deploy from a branch → main → / (root). Changes go live a minute or two after each commit.

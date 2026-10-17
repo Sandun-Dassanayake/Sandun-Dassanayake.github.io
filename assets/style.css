@@ -187,3 +187,99 @@ main { padding-top: 24px; padding-bottom: 72px; }
 .site-foot a { margin-right: 16px; }
 
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* =========================================================
+   Profile feed (Postgraduate Research, Research Interests)
+   ========================================================= */
+h3 { font-size: 1.05rem; font-weight: 600; margin: 1.6em 0 0.4em; }
+.page-head .intro { margin: 12px 0 0; max-width: 60ch; color: var(--soft); font-size: 1.1rem; }
+
+.feed { max-width: 920px; }
+.feed .toc { margin-top: 8px; }
+
+/* Two parallel lines between profiles */
+hr.double {
+  border: 0; height: 7px; margin: 48px 0;
+  border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+}
+
+.profile {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  overflow: hidden;
+  scroll-margin-top: 80px;
+}
+.profile .cover {
+  position: relative; height: 140px;
+  background: color-mix(in srgb, var(--teal) 16%, var(--surface));
+}
+.profile .cover .contours { background: color-mix(in srgb, var(--teal) 45%, var(--surface)); }
+.profile-head {
+  display: flex; align-items: flex-end; gap: 20px; flex-wrap: wrap;
+  padding: 0 28px; margin-top: -56px; position: relative;
+}
+.avatar {
+  width: 128px; height: 128px; border-radius: 50%;
+  border: 5px solid var(--surface);
+  background: var(--teal); color: var(--teal-ink);
+  display: grid; place-items: center; overflow: hidden; flex: none;
+  font: 600 2.4rem var(--serif);
+}
+.avatar img { grid-area: 1 / 1; width: 100%; height: 100%; object-fit: cover; }
+.avatar span { grid-area: 1 / 1; }
+.avatar img + span { display: none; }
+.who { flex: 1; min-width: 200px; padding-bottom: 6px; }
+.who h2 { margin: 0; font-size: 1.6rem; }
+.meta { margin: 2px 0 0; color: var(--soft); font-family: var(--sans); font-size: 0.95rem; }
+.status {
+  font: 600 0.8rem var(--sans); padding: 5px 12px; border-radius: 999px; margin-bottom: 10px;
+  background: color-mix(in srgb, var(--teal) 14%, transparent); color: var(--teal);
+}
+.status.completed { background: color-mix(in srgb, var(--ochre) 14%, transparent); color: var(--ochre); }
+
+.profile-body {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 32px;
+  padding: 8px 28px 28px;
+}
+.profile-side { border-right: 1px solid var(--rule); padding-right: 28px; }
+.profile-side h3:first-child, .profile-main section:first-child h3 { margin-top: 1.2em; }
+.profile-main section + section { border-top: 1px solid var(--rule); margin-top: 20px; }
+.project-title { font-weight: 600; font-style: italic; margin: 0 0 6px; }
+.profile-links { display: flex; flex-wrap: wrap; gap: 6px 16px; font-family: var(--sans); font-size: 0.92rem; }
+.profile .pubs { margin: 0; }
+
+/* Research areas: figure first, body reversed (text wide, side narrow) */
+.area .profile-body { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+.area .profile-side { border-right: 0; border-left: 1px solid var(--rule); padding: 0 0 0 28px; }
+.area-head { display: flex; align-items: baseline; gap: 14px; padding: 24px 28px 0; }
+.area-head h2 { margin: 0; font-size: 1.6rem; }
+.area-n { font: 600 0.95rem var(--sans); color: var(--ochre); }
+.area-pubs { border-top: 1px solid var(--rule); margin: 0 28px; padding-bottom: 24px; }
+.figure { margin: 0; position: relative; background: color-mix(in srgb, var(--teal) 10%, var(--surface)); }
+.figure img { display: block; width: 100%; max-height: 460px; object-fit: cover; }
+.figure figcaption { font: 0.88rem/1.45 var(--sans); color: var(--soft); padding: 10px 28px; border-bottom: 1px solid var(--rule); background: var(--surface); }
+.figure.empty::before {
+  content: "Add figure: " attr(data-file);
+  display: grid; place-items: center; aspect-ratio: 16 / 7;
+  font: 500 0.92rem var(--sans); color: var(--soft);
+  border-bottom: 1px dashed var(--rule);
+}
+.chips { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.chips li { font: 500 0.85rem var(--sans); padding: 5px 12px; border: 1px solid var(--rule); border-radius: 999px; }
+
+@media (max-width: 760px) {
+  .profile-body, .area .profile-body { grid-template-columns: 1fr; gap: 0; padding: 4px 20px 20px; }
+  .profile-side, .area .profile-side { border: 0; padding: 0; }
+  .profile-head { padding: 0 20px; margin-top: -48px; gap: 12px; }
+  .avatar { width: 104px; height: 104px; font-size: 2rem; }
+  .area-head { padding: 20px 20px 0; }
+  .area-pubs { margin: 0 20px; }
+  .figure figcaption { padding: 10px 20px; }
+  .profile .cover { height: 110px; }
+}
+
+/* Course lists (Teaching) */
+.course-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--rule); }
+.course-list li { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 14px 2px; border-bottom: 1px solid var(--rule); }
+.course { font-weight: 600; }
